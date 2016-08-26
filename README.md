@@ -1,2 +1,107 @@
 # a-frame-components
 A-Frame components made for samsung internet.
+
+# Components
+
+## dist/clone.js
+
+Component for cloning another entitiy's object3D into this entity.
+
+```html
+<a-entity id="clone-me" geometry="primitive: cylinder; height: 0.5; radius: 1.3" rotation="-90 0 0" material="color: grey;"></a-entity>
+<a-entity clone="clone-me" position="2 0 0"></a-entity> <!-- Duplicate object moved 2 units across -->
+```
+
+## dist/curve.js
+
+Components and Primitives for defining and using curves
+
+```html
+	<!-- Points can be defined absolutely -->
+
+	<a-curve id="track1" curve="CatmullRom">
+		<a-curve-point position="-60 0 170"></a-curve-point>
+		<a-curve-point position="-60 15 260"></a-curve-point>
+		<a-curve-point position="0 10 280"></a-curve-point>
+		<a-curve-point position="30 10 240"></a-curve-point>
+	</a-curve>
+
+	<!-- or they can be relative to the previous point -->
+	<a-curve id="track2" curve="CatmullRom">
+		<a-curve-point position="0 -4 0">
+			<a-curve-point position="-30 8 10">
+				<a-curve-point position="-30 -6 30">
+					<a-curve-point position="0 8 40">
+						<a-curve-point position="0 -2 40">
+							<a-curve-point position="0 25 50">
+							</a-curve-point>
+						</a-curve-point>
+					</a-curve-point>
+				</a-curve-point>
+			</a-curve-point>
+		</a-curve-point>
+	</a-curve>
+
+	<!-- You can draw the curve (shader is included) -->
+	<a-draw-curve curve="#track2" material="shader: line; color: blue;"></a-draw-curve>
+
+	<!-- You can clone geometry along the curve -->
+	<a-entity clone-along-curve="curve: #track1; spacing: 6; scale: 1.5 1 2; rotation: 0 0 0;" obj-model="obj: #race-track-obj; mtl: #race-track-mtl;"></a-entity>
+
+```
+
+It provides a javascript api too
+
+```js
+	// Tries to return the nearest point on the curve.
+	// Curves which cross over themselves cause this to break down
+	document.getElementById('track1').components.curve.closestPointInLocalSpace(new THREE.Vector3(1,2,3));
+```
+
+Events:
+
+* curve-updated - Fired when a curve-point has been changed or added and the curve has been regenerated.
+
+## dist/follow.js
+
+One entity tries to follow another it is damped so if it is close it does not recover as much.
+
+E.g. in this case the camera should point to and try to be behind the pink box
+
+```html
+<a-entity look-at="#ship" follow="target: #camera-target;">
+
+		<!-- Disable the default wasd controls we are using those to control the box -->
+		<a-camera position="0 2 0" wasd-controls="enabled: false;"></a-camera>
+</a-entity>
+
+<a-entity geometry material="color: pink;" wasd-controls>
+
+	<!-- The camera target is an area 4 units behind the box -->
+	<a-entity id="camera-target" position="0 0 -4"></a-entity>
+</a-entity>
+```
+
+## dist/ocean-plane.js
+
+Based on the new material options added to A-Frame which are not in version 0.3
+
+```html
+<a-assets>
+	<img id="water-normal" src="https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/waternormals.jpg" crossorigin="anonymous" />
+	<img id="skysphere" src="some-equirectangular-image.jpg" crossorigin="anonymous" />
+</a-assets>
+
+<a-sky src="#skysphere" position="0 -1 0" rotation="0 -90 0"></a-sky>
+
+<a-ocean-plane material="normalMap: #water-normal; sphericalEnvMap: #skysphere;"></a-ocean-plane>
+```
+
+## dist/webgl-ocean-shader.js
+
+Ported from THREE.js
+
+## dist/webgl-sky-sun-shader.js
+
+Ported from THREE.js
+
