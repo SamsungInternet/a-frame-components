@@ -1,9 +1,9 @@
 # a-frame-components
 A-Frame components made for samsung internet.
 
-# Components
+## Components
 
-## dist/clone.js
+### dist/clone.js
 
 Component for cloning another entitiy's object3D into this entity.
 
@@ -12,7 +12,7 @@ Component for cloning another entitiy's object3D into this entity.
 <a-entity clone="clone-me" position="2 0 0"></a-entity> <!-- Duplicate object moved 2 units across -->
 ```
 
-## dist/curve.js
+### dist/curve.js
 
 Components and Primitives for defining and using curves
 
@@ -62,7 +62,7 @@ Events:
 
 * curve-updated - Fired when a curve-point has been changed or added and the curve has been regenerated.
 
-## dist/follow.js
+### dist/follow.js
 
 One entity tries to follow another it is damped so if it is close it does not recover as much.
 
@@ -82,7 +82,7 @@ E.g. in this case the camera should point to and try to be behind the pink box
 </a-entity>
 ```
 
-## dist/ocean-plane.js
+### dist/ocean-plane.js
 
 Based on the new material options added to A-Frame which are not in version 0.3
 
@@ -97,11 +97,11 @@ Based on the new material options added to A-Frame which are not in version 0.3
 <a-ocean-plane material="normalMap: #water-normal; sphericalEnvMap: #skysphere;"></a-ocean-plane>
 ```
 
-## dist/webgl-ocean-shader.js
+### dist/webgl-ocean-shader.js
 
 Ported from THREE.js
 
-## dist/webgl-sky-sun-shader.js
+### dist/webgl-sky-sun-shader.js
 
 Ported from THREE.js
 
