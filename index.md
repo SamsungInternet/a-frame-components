@@ -12,7 +12,7 @@ description: 360 degree video spheres in the Web with Web VR. New cameras and th
 
 <p>Adds a button for taking snapshots of your A-Frame scene. ctrl-alt-p works too.</p>
 
-<p>Or use it whenever with a bookmarklet: <a href="javascript:(function(){var script=document.createElement('script');script.src='https://Samsunginternet.github.io/a-frame-components/dist/snapshot.js';document.body.appendChild(script);requestAnimationFrame(function () {document.querySelector('a-scene').setAttribute('snapshot', '');}))();" class="bookmarklet lifted">A-Frame Snapshot</a>
+<p>Or use it whenever with a bookmarklet: <a href="javascript:(function(){var script=document.createElement('script');script.src='https://Samsunginternet.github.io/a-frame-components/dist/snapshot.js';script.onload = (function () {document.querySelector('a-scene').setAttribute('snapshot', '');});document.body.appendChild(script);})();" class="bookmarklet lifted">A-Frame Snapshot</a>
 </p>
 
 ```html

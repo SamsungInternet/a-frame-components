@@ -35,7 +35,7 @@ AFRAME.registerComponent('snapshot', {
 				this.button.classList.add('a-enter-vr-button');
 				this.button.style.backgroundImage = icon;
 				this.button.style.backgroundSize = '80%';
-				this.button.addEventListener('click', this.onKeyDown);
+				this.button.addEventListener('click', this.snapshot.bind(this));
 				target.appendChild(this.button);
 
 				Array.from(target.getElementsByClassName('a-enter-vr-button')).forEach(function (el) {
