@@ -1,7 +1,24 @@
-# a-frame-components
-A-Frame components made for samsung internet.
+---
+layout: default
+styles: ['css/style.css', 'css/highlight.css']
+image: https://avatars0.githubusercontent.com/u/21077792?v=3
+title: A-Frame Components by Samsung Internet
+repo: https://github.com/SamsungInternet/a-frame-components
+date: Monday May 16th 2016
+description: 360 degree video spheres in the Web with Web VR. New cameras and the advent of VR heralds a new era of immersive video experiences.
+---
 
-## Components
+### dist/snapshot.js
+
+<p>Adds a button for taking snapshots of your A-Frame scene. ctrl-alt-p works too.</p>
+
+<p>Or use it whenever with a bookmarklet: <a href="javascript:(function(){var script=document.createElement('script');script.src='https://Samsunginternet.github.io/a-frame-components/dist/snapshot.js';document.body.appendChild(script);})();" class="bookmarklet lifted">A-Frame Snapshot</a>
+</p>
+
+```html
+<a-scene snapshot>
+</a-scene>
+```
 
 ### dist/clone.js
 
@@ -97,11 +114,4 @@ Based on the new material options added to A-Frame which are not in version 0.3
 <a-ocean-plane material="normalMap: #water-normal; sphericalEnvMap: #skysphere;"></a-ocean-plane>
 ```
 
-### dist/webgl-ocean-shader.js
-
-Ported from THREE.js
-
-### dist/webgl-sky-sun-shader.js
-
-Ported from THREE.js
 

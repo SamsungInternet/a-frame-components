@@ -1,0 +1,131 @@
+---
+---
+
+html, body {
+	font-family: MetricWeb, 'Open Sans', sans-serif;
+	font-weight: 400;
+	color: #333;
+	margin: 0;
+	padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 300;
+}
+h2, h3 {
+	&:before {
+		content: '';
+		clear: both;
+		display: block;
+		height: 2em;
+	}
+	margin: 0 0 1.5em 0;
+	border-bottom: 1px solid grey;
+}
+a {
+	color: #336ACE;
+}
+h2 a {
+	text-decoration: none;
+}
+.title {
+	margin: 0;
+	padding: 2em 1em 1em 1em;
+    position: relative;
+    border-bottom: 1px solid grey;
+	color: white;
+	background: #A25AFF;
+
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: -1em;
+		height: 2em;
+		width: 2em;
+		background: white;
+		border: 1px solid grey;
+		border-width: 1px 0 0 1px;
+		transform: rotate(45deg);
+		left: 3em;
+		font-size: 12px;
+	}
+
+	h1 {
+		font-size: 2em;
+		text-decoration: none;
+	}
+	h3 {
+		border: none;
+	}
+}
+
+img {
+	max-width: 100%;
+	max-height: 66vmin;
+	float: right;
+	&+em {
+		max-width: 100%;
+		max-height: 66vmin;
+		float: right;
+		background: #F9F8BF;
+		border-bottom: 1px solid grey;
+		clear: right;
+		margin: 0 0 0.5em 3em;
+	}
+}
+.lifted {
+	position:relative;
+	background:#fff;
+	box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	padding: 0.2em 0.5em;
+	border-radius: 0.5em;
+	cursor: move;
+	color: inherit;
+	text-decoration: none;
+
+	&:active,
+	&:hover,
+	&::visited {
+		color: inherit;
+	}
+
+	&:before,
+	&:after {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		bottom:15px;
+		left:3%;
+		width:50%;
+		height:20%;
+		max-width:300px;
+		box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+		transform:rotate(-3deg);
+	}
+	&:after {
+		right:3%;
+		left:auto;
+		transform:rotate(3deg);
+	}
+}
+
+.code {
+	font-family: monospace;
+	display: inline;
+	white-space: wrap;
+}
+
+pre {
+	display: block;
+	border: 1px solid rgba(100, 100, 100, 0.5);
+	background: 1px solid rgba(100, 100, 100, 0.3);
+	padding: 0.5em;
+	margin: 1em;
+	overflow: auto;
+	tab-size: 4;
+	white-space: wrap;
+}
+
+footer {
+	padding: 1em;
+	border-top: 1px solid #ccc;
+}

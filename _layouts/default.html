@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href='https://fonts.gstatic.com' rel='preconnect' crossorigin>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300,600,800' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://build.origami.ft.com/v2/bundles/css?modules=o-grid@^4.0.0" />
+		<meta http-equiv="cleartype" content="on" />
+		<meta name="MobileOptimized" content="width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui" />
+		<meta name="HandheldFriendly" content="true" />
+		<meta charset="UTF-8">
+		<title>{{ page.title }}</title>
+		{% if page.image %}
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:image" content="{{ page.image }}">
+		{% else %}
+		<meta name="twitter:card" content="summary">
+		{% endif %}
+		<meta name="twitter:site" content="@sbrowserdevrel">
+		<meta name="twitter:creator" content="@sbrowserdevrel">
+		{% if page.title %}
+			<meta name="twitter:title" content="{{ page.title }}">
+		{% endif %}
+		{% if page.link %}
+			<meta name="twitter:url" content="{{ page.link }}">
+		{% endif %}
+		{% if page.description %}
+			<meta name="description" content="{{ page.description }}">
+			<meta name="twitter:description" content="{{ page.description }}">
+		{% endif %}
+		{% if page.script %}
+		<script src="{{ page.script }}"></script>
+		{% endif %}
+		{% if page.scripts %}
+		{% for item in page.scripts %}
+		<script src="{{ item }}"></script>
+		{% endfor %}
+		{% endif %}
+		{% if page.style %}
+		<link rel="stylesheet" href="{{ page.style }}" />
+		{% endif %}
+		{% if page.styles %}
+		{% for item in page.styles %}
+		<link rel="stylesheet" href="{{ item }}" />
+		{% endfor %}
+		{% endif %}
+	</head>
+	<body>
+		<div class="title">
+			<h1 style="display: inline-block;">{{ page.title }}</h1>
+			{% if page.author %}<h3 style="display: inline-block;">by {{ page.author }}</h3>{% endif %}
+		</div>
+		<div class="o-grid-container"><div class="o-grid-row">
+			<article data-o-grid-colspan="center 12 M11 L9">
+{{ content }}
+			</article>
+		</div></div>
+		<a href="{{repo}}"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+		<footer>
+			2016 - Samsung Internet
+		</footer>
+	</body>
+</html>
