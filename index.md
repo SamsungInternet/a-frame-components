@@ -2,10 +2,11 @@
 layout: default
 styles: ['css/style.css', 'css/highlight.css']
 image: https://avatars0.githubusercontent.com/u/21077792?v=3
-title: A-Frame Components by Samsung Internet
+title: A-Frame Components
 repo: https://github.com/SamsungInternet/a-frame-components
+author: '<a href="https://twitter.com/sbrowserdevrel" style="color: white; text-decoration: none;">Samsung Internet</a>'
 date: Monday May 16th 2016
-description: 360 degree video spheres in the Web with Web VR. New cameras and the advent of VR heralds a new era of immersive video experiences.
+description: Components used in A-Frame projects which can be reused.
 ---
 
 ### dist/snapshot.js
@@ -14,6 +15,10 @@ description: 360 degree video spheres in the Web with Web VR. New cameras and th
 
 <p>Or use it whenever with a bookmarklet: <a href="javascript:(function(){var script=document.createElement('script');script.src='https://Samsunginternet.github.io/a-frame-components/dist/snapshot.js';script.onload = (function () {document.querySelector('a-scene').setAttribute('snapshot', '');});document.body.appendChild(script);})();" class="bookmarklet lifted">A-Frame Snapshot</a>
 </p>
+
+```html
+<script src="https://Samsunginternet.github.io/a-frame-components/dist/snapshot.js"></script>
+```
 
 ```html
 <a-scene snapshot>
@@ -25,6 +30,10 @@ description: 360 degree video spheres in the Web with Web VR. New cameras and th
 Component for cloning another entitiy's object3D into this entity.
 
 ```html
+<script src="https://Samsunginternet.github.io/a-frame-components/dist/clone.js"></script>
+```
+
+```html
 <a-entity id="clone-me" geometry="primitive: cylinder; height: 0.5; radius: 1.3" rotation="-90 0 0" material="color: grey;"></a-entity>
 <a-entity clone="clone-me" position="2 0 0"></a-entity> <!-- Duplicate object moved 2 units across -->
 ```
@@ -32,6 +41,10 @@ Component for cloning another entitiy's object3D into this entity.
 ### dist/curve.js
 
 Components and Primitives for defining and using curves
+
+```html
+<script src="https://Samsunginternet.github.io/a-frame-components/dist/curve.js"></script>
+```
 
 ```html
 	<!-- Points can be defined absolutely -->
@@ -67,7 +80,7 @@ Components and Primitives for defining and using curves
 
 ```
 
-It provides a javascript api too
+It provides a javascript api for hooking into scripting.
 
 ```js
 	// Tries to return the nearest point on the curve.
@@ -86,6 +99,10 @@ One entity tries to follow another it is damped so if it is close it does not re
 E.g. in this case the camera should point to and try to be behind the pink box
 
 ```html
+<script src="https://Samsunginternet.github.io/a-frame-components/dist/follow.js"></script>
+```
+
+```html
 <a-entity look-at="#ship" follow="target: #camera-target;">
 
 		<!-- Disable the default wasd controls we are using those to control the box -->
@@ -101,7 +118,11 @@ E.g. in this case the camera should point to and try to be behind the pink box
 
 ### dist/ocean-plane.js
 
-Based on the new material options added to A-Frame which are not in version 0.3
+Based on the new material options added to A-Frame which are available in a-frame master
+
+```html
+<script src="https://Samsunginternet.github.io/a-frame-components/dist/ocean-plane.js"></script>
+```
 
 ```html
 <a-assets>
