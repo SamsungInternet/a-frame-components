@@ -3,7 +3,7 @@ layout: default
 styles: ['css/style.css', 'css/highlight.css']
 image: https://avatars0.githubusercontent.com/u/21077792?v=3
 title: A-Frame Components
-repo: https://github.com/SamsungInternet/a-frame-components
+repo: https://github.com/SamsungInternet/a-frame-components/
 author: '<a href="https://twitter.com/sbrowserdevrel" style="color: white; text-decoration: none;">Samsung Internet</a>'
 date: Monday May 16th 2016
 description: Components used in A-Frame projects which can be reused.
