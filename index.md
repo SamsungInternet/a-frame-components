@@ -9,28 +9,59 @@ date: Monday May 16th 2016
 description: Components used in A-Frame projects which can be reused.
 ---
 
+### dist/clapper.js
+
+Component for detecting one or multiple claps.
+
+```html
+<script src="https://samsunginternet.github.io/a-frame-components/dist/clapper.js"></script>
+```
+
+* `debounce` - default true - if false will emit `clap` on each clap. Default behaviour is to to emit `clap` after one clap and `clapclap` after two or more.
+* `trigger`- default 0.95 - how loud the clap needs to be to trigger.
+
+```html
+<a-entity fire-item="el:#fire-me; on: clap;" clapper="debounce: true; trigger: 0.95;"></a-entity>
+```
+
+### dist/fire-item.js
+
+Component for firing dynamic physics objects on events
+
+```html
+<script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v1.0.3/dist/aframe-physics-system.min.js"></script>
+<script src="https://samsunginternet.github.io/a-frame-components/dist/fire-item.js"></script>
+```
+
+```html
+<a-sphere id="fire-me" dynamic-body="shape: sphere;"></a-sphere>
+<a-entity fire-item="el:#fire-me; on: click;"></a-entity> <!-- Fire an object on click -->
+```
+
+<!--
 ### dist/snapshot.js
 
 <p>Adds a button for taking snapshots of your A-Frame scene. ctrl-alt-p works too.</p>
 
-<p>Or use it whenever with a bookmarklet: <a href="javascript:(function(){var script=document.createElement('script');script.src='https://Samsunginternet.github.io/a-frame-components/dist/snapshot.js';script.onload = (function () {document.querySelector('a-scene').setAttribute('snapshot', '');});document.body.appendChild(script);})();" class="bookmarklet lifted">A-Frame Snapshot</a>
+<p>Or use it whenever with a bookmarklet: <a href="javascript:(function(){var script=document.createElement('script');script.src='https://samsunginternet.github.io/a-frame-components/dist/snapshot.js';script.onload = (function () {document.querySelector('a-scene').setAttribute('snapshot', '');});document.body.appendChild(script);})();" class="bookmarklet lifted">A-Frame Snapshot</a>
 </p>
 
 ```html
-<script src="https://Samsunginternet.github.io/a-frame-components/dist/snapshot.js"></script>
+<script src="https://samsunginternet.github.io/a-frame-components/dist/snapshot.js"></script>
 ```
 
 ```html
 <a-scene snapshot>
 </a-scene>
 ```
+-->
 
 ### dist/clone.js
 
 Component for cloning another entitiy's object3D into this entity.
 
 ```html
-<script src="https://Samsunginternet.github.io/a-frame-components/dist/clone.js"></script>
+<script src="https://samsunginternet.github.io/a-frame-components/dist/clone.js"></script>
 ```
 
 ```html
@@ -43,7 +74,7 @@ Component for cloning another entitiy's object3D into this entity.
 Components and Primitives for defining and using curves
 
 ```html
-<script src="https://Samsunginternet.github.io/a-frame-components/dist/curve.js"></script>
+<script src="https://samsunginternet.github.io/a-frame-components/dist/curve.js"></script>
 ```
 
 ```html
@@ -99,7 +130,7 @@ One entity tries to follow another it is damped so if it is close it does not re
 E.g. in this case the camera should point to and try to be behind the pink box
 
 ```html
-<script src="https://Samsunginternet.github.io/a-frame-components/dist/follow.js"></script>
+<script src="https://samsunginternet.github.io/a-frame-components/dist/follow.js"></script>
 ```
 
 ```html
@@ -121,7 +152,7 @@ E.g. in this case the camera should point to and try to be behind the pink box
 Based on the new material options added to A-Frame which are available in a-frame master
 
 ```html
-<script src="https://Samsunginternet.github.io/a-frame-components/dist/ocean-plane.js"></script>
+<script src="https://samsunginternet.github.io/a-frame-components/dist/ocean-plane.js"></script>
 ```
 
 ```html
