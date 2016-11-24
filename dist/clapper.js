@@ -92,7 +92,6 @@ AFRAME.registerComponent('clapper', {
 				} else {
 					clap();
 				}
-				document.bgColor = 'rgb('+Math.random()*255+','+Math.random()*255+','+Math.random()*255+')';
 			}
 		}.bind(this));
 	},
