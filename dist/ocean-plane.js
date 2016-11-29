@@ -3,6 +3,7 @@
 AFRAME.registerComponent('wobble-normal', {
 	schema: {},
 	tick: function (t) {
+		if (!this.el.components.material.material.normalMap) return;
 		this.el.components.material.material.normalMap.offset.x += 0.0001 * Math.sin(t/10000);
 		this.el.components.material.material.normalMap.offset.y += 0.0001 * Math.cos(t/8000);
 		this.el.components.material.material.normalScale.x = 0.5 + 0.5 * Math.cos(t/1000);
