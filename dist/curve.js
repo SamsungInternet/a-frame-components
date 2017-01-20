@@ -1,5 +1,5 @@
 
-/* Follows an object around (don't need to be in same space) */
+/* For dealing with spline curves */
 
 var __tempVector1 = new THREE.Vector3();
 var __tempVector2 = new THREE.Vector3();
@@ -17,7 +17,7 @@ AFRAME.registerComponent('curve-point', {
 
 	init: function () {
 		var el = this.el;
-		while (el && !el.components.curve) el = el.parentNode;
+		while (el && !el.matches('[curve]')) el = el.parentNode;
 		this.parentCurve = el;
 	},
 
@@ -41,7 +41,9 @@ AFRAME.registerComponent('curve', {
 		// CubicBezier
 		// QuadraticBezier
 		// Line
-		default: 'CatmullRom'
+		type: {
+			default: 'CatmullRom'
+		}
 	},
 
 	update: function () {
@@ -51,7 +53,7 @@ AFRAME.registerComponent('curve', {
 	tick: function () {
 		if (!this.needsUpdate) return;
 		this.needsUpdate = false;
-		this.threeConstructor = THREE[this.data + 'Curve3'];
+		this.threeConstructor = THREE[this.data.type + 'Curve3'];
 
 		var points = Array.from(this.el.querySelectorAll('a-curve-point')).filter(function (a) { return a.tagName === 'A-CURVE-POINT' });
 
@@ -61,23 +63,26 @@ AFRAME.registerComponent('curve', {
 			if (a.x !== undefined && a.y !== undefined && a.z !== undefined) {
 				return a;
 			}
+
+			// flush position information to object 3D
+
+			a.updateComponent('position');
 			return a.object3D.getWorldPosition()
 		});
 
 		// apply the points as ags to the Beziers
-		if (this.data.match(/QuadraticBezier|CubicBezier|Line/)) {
+		if (this.data.type.match(/QuadraticBezier|CubicBezier|Line/)) {
 			this.curve = (Function.prototype.bind.apply(this.threeConstructor, this.points));
 		} else {
 			if (!this.threeConstructor) {
 				this.pause();
-				throw ('No Three constructor of type (case sensitive): ' + this.data + 'Curve3');
+				throw ('No Three constructor of type (case sensitive): ' + this.data.type + 'Curve3');
 			}
 			this.curve = new this.threeConstructor(this.points);
 		}
 
 		this.el.emit('curve-updated');
 
-		this.el.setObject3D('curve', this.curve);
 		this.ready = true;
 	},
 
@@ -85,7 +90,6 @@ AFRAME.registerComponent('curve', {
 		this.curve = null;
 		this.points = null;
 		this.ready = false;
-		this.el.removeObject3D('curve');
 	},
 
 	closestPointInLocalSpace: function closestPoint(point, resolution, testPoint, currentRes) {
